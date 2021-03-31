@@ -9,7 +9,7 @@
 <img src="https://raw.githubusercontent.com/Darakah/obsidian-fountain/main/images/Example_1.png"/>
 
 ## Features
-- Obsidian Block to render and fountain script inside md notes
+- Obsidian Block to render fountain script inside md notes
 
 ## Usage
 - Write Fountain script inside render block with block id `fountain`

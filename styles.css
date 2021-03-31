@@ -1,0 +1,82 @@
+.screenplay {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+.screenplay {
+    display: block;
+}
+
+
+/* Styles for Screenplain */
+
+.screenplay {
+    margin: auto;
+    width: 60%;
+    text-align: left;
+    font: 12pt 'Courier Final Draft', 'Courier Screenplay', Courier;
+    padding: 0pt 0 0 0pt;
+    position: relative;
+}
+
+.screenplay>header {
+    margin-bottom: 1em;
+    border-bottom: 1px solid black;
+}
+
+.screenplay>footer {
+    margin-top: 1em;
+}
+
+.screenplay>em {
+    font-style: italic;
+}
+
+.screenplay>p .bold {
+    font-weight: bold;
+}
+
+.screenplay>br {
+    clear: both;
+}
+
+.screenplay>div.action p {
+    margin-top: 1em;
+}
+
+
+/* Dialogue */
+
+.screenplay>.dialogue h4 {
+    text-align: center;
+    color: var(--bright-yellow) !important;
+    font-weight: 500 !important;
+    font-size: 18px !important;
+}
+
+.screenplay>.dialogue p {
+    text-align: left;
+    margin-left: 20%;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.screenplay>.dialogue .parenthetical {
+    padding-left: 10%;
+}
+
+
+/* Headers */
+
+.screenplay>h3 {
+    margin-top: 2em;
+    text-transform: uppercase;
+    font-weight: bold !important;
+    color: var(--text-accent) !important;
+}

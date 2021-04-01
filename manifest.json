@@ -1,9 +1,9 @@
 {
     "id": "obsidian-fountain",
     "name": "Fountain",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "minAppVersion": "0.10.11",
-    "description": "Parse Fountain Writing Syntax",
+    "description": "Fountain Support for Obsidian",
     "author": "darakah",
     "authorUrl": "https://github.com/Darakah/",
     "isDesktopOnly": false

@@ -1,7 +1,7 @@
 {
     "name": "Fountain",
-    "version": "0.0.1",
-    "description": "Parse Fountain Writing Syntax",
+    "version": "0.1.0",
+    "description": "Fountain Support for Obsidian",
     "author": "darakah",
     "main": "main.js",
     "license": "MIT",

@@ -31,7 +31,7 @@ export default class FountainPlugin extends Plugin {
 		});
 	}
 
-	fountainViewCreator = (leaf: WorkspaceLeaf) => {
+	fountainViewCreator(leaf: WorkspaceLeaf) {
 		return new fountainView(leaf);
 	};
 

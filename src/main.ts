@@ -57,11 +57,8 @@ class fountainView extends MarkdownView {
 		let workspace = this.app.workspace;
 		this.registerEvent(workspace.on('layout-ready', this.render));
 		this.registerEvent(workspace.on('file-open', this.render));
+		this.registerEvent(workspace.on('quick-preview', this.render));
 	}
-
-	getViewData = () => {
-		return this.render();
-	};
 
 	getDisplayText() {
 		if (this.file) return this.file.basename;

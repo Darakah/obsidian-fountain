@@ -2,13 +2,14 @@
 ![GitHub release)](https://img.shields.io/github/v/release/Darakah/obsidian-fountain)
 ![GitHub all releases](https://img.shields.io/github/downloads/Darakah/obsidian-fountain/total)
 
-[Obsidian](https://obsidian.md/) plugin to write and render [Fountain](https://fountain.io/) Writing Syntax for screenplays and scripts (implements [fountain-js](https://github.com/mattdaly/Fountain.js) project to parse fountain script).
+[Obsidian](https://obsidian.md/) plugin to edit, write and render [Fountain](https://fountain.io/) Writing Syntax for screenplays and scripts (implements [fountain-js](https://github.com/mattdaly/Fountain.js) project to parse fountain script).
 
 ## Example
 
 <img src="https://raw.githubusercontent.com/Darakah/obsidian-fountain/main/images/Example_1.png"/>
 
 ## Features
+- Obsidian support for `.fountain` files (Edit and render `.fountain` files from inside obsidian)
 - Obsidian Block to render fountain script inside md notes
 
 ## Usage
@@ -21,6 +22,10 @@
 Appearance can be modified by changing the `style.css` found inside the `obsidian-fountain` plugin folder. Feel free to submit additional fancy css features (the current ones are the simple basics in default fountain).
 
 ## Release Notes
+
+### v0.1.0
+- Added Obsidian support for `.fountain` files (Edit and render `.fountain` files from inside obsidian)
+- Code cleanup 
 
 ### v0.0.1
 - Initial release

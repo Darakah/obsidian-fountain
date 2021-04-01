@@ -62,10 +62,6 @@ class fountainView extends MarkdownView {
 		else return "fountain (no file)";
 	}
 
-	clear() {
-
-	}
-
 	canAcceptExtension(extension: string) {
 		return extension == 'fountain';
 	}

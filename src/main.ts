@@ -1,8 +1,7 @@
 import { Plugin, WorkspaceLeaf, MarkdownView } from 'obsidian';
 import * as fountain from '../node_modules/Fountain-js/fountain.js';
 
-
-async function parseFountain(text: string, container: HTMLElement) {
+function parseFountain(text: string, container: HTMLElement) {
 	fountain.parse(text, function (output) {
 		container.innerHTML = output.html.script;
 	});
@@ -18,6 +17,7 @@ export default class FountainPlugin extends Plugin {
 
 		// register .fountain extension
 		this.registerExtensions(["fountain"], "fountain");
+
 		// register fountain view
 		this.registerView("fountain", this.fountainViewCreator);
 
@@ -50,10 +50,6 @@ class fountainView extends MarkdownView {
 		this.parsedEl.className = 'screenplay';
 	}
 
-	setViewData = () => {
-		parseFountain(this.data, this.parsedEl);
-	};
-
 	getViewData = () => {
 		let editorValue = this.editor.getValue();
 		parseFountain(editorValue, this.parsedEl);
@@ -64,6 +60,10 @@ class fountainView extends MarkdownView {
 	getDisplayText() {
 		if (this.file) return this.file.basename;
 		else return "fountain (no file)";
+	}
+
+	clear() {
+
 	}
 
 	canAcceptExtension(extension: string) {

@@ -50,11 +50,11 @@ class fountainView extends MarkdownView {
 		this.parsedEl.className = 'screenplay';
 	}
 
-	setViewData = () => {
+	setViewData() {
 		parseFountain(this.data, this.parsedEl);
 	};
 
-	getViewData = () => {
+	getViewData() {
 		let editorValue = this.editor.getValue();
 		parseFountain(editorValue, this.parsedEl);
 

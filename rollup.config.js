@@ -17,7 +17,6 @@ export default {
         styles(),
         resolve({
             browser: true,
-            dedupe: ["svelte"],
         }),
         commonjs({
             include: "node_modules/**",

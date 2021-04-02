@@ -1,3 +1,10 @@
+/* Fountain Code Mirror */
+
+.fountain-source-view>.CodeMirror-wrap>.CodeMirror-scroll {
+    padding: 30px !important;
+    top: -35px !important;
+}
+
 .screenplay {
     margin: 0;
     padding: 0;

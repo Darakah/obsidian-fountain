@@ -114,7 +114,7 @@ class FountainView extends TextFileView {
 	}
 
 	async initialize() {
-		let fileText = await this.app.vault.read(this.file);
+		let fileText = await this.app.vault.Cachedread(this.file);
 		this.data = fileText;
 		this.editor.setValue(fileText);
 	}

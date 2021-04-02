@@ -24,6 +24,9 @@ Appearance can be modified by changing the `style.css` found inside the `obsidia
 ## Release Notes
 
 ### v0.1.0
+- Changed from using `markdownEditor` of obsidian to `CodeMirror` to avoid possible conflicts with other plugins and wasted parsing by obsidian.
+
+### v0.1.0
 - Added Obsidian support for `.fountain` files (Edit and render `.fountain` files from inside obsidian)
 - Code cleanup 
 

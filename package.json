@@ -1,6 +1,6 @@
 {
     "name": "Fountain",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "description": "Fountain Support for Obsidian",
     "author": "darakah",
     "main": "main.js",

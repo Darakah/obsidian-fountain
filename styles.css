@@ -1,8 +1,8 @@
 /* Fountain Code Mirror */
 
 .fountain-source-view>.CodeMirror-wrap>.CodeMirror-scroll {
-    padding: 30px !important;
-    top: -35px !important;
+    padding: 20px !important;
+    position: unset;
 }
 
 .screenplay {
@@ -28,7 +28,7 @@
     text-align: left;
     font: 12pt 'Courier Final Draft', 'Courier Screenplay', Courier;
     padding: 0pt 0 0 0pt;
-    position: relative;
+    position: static;
 }
 
 .screenplay>header {
@@ -87,4 +87,18 @@
     text-transform: uppercase;
     font-weight: bold !important;
     color: var(--text-accent) !important;
+}
+
+
+/* Change mode button */
+
+.fountain-button {
+    background-color: transparent;
+    margin: none;
+    padding: 0px;
+}
+
+.fountain-button:hover {
+    color: var(--text-a);
+    background-color: transparent;
 }

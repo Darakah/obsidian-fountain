@@ -1,7 +1,7 @@
 {
     "id": "obsidian-fountain",
     "name": "Fountain",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "minAppVersion": "0.10.11",
     "description": "Fountain Support for Obsidian",
     "author": "darakah",

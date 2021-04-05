@@ -47,7 +47,6 @@ class FountainView extends TextFileView {
 	sourceEl: HTMLElement;
 	editorEl: HTMLTextAreaElement;
 	editor: CodeMirror.Editor;
-	data: string;
 
 	constructor(leaf: WorkspaceLeaf) {
 		super(leaf);
@@ -95,20 +94,21 @@ class FountainView extends TextFileView {
 	}
 
 	getViewData() {
-		this.data = this.editor.getValue();
-		return this.data;
+		return this.editor.getValue();
 	}
 
-	async setViewData() {
-		let fileText = await this.app.vault.cachedRead(this.file);
-		this.data = fileText;
-		this.editor.setValue(fileText);
-		parseFountain(this.data, this.previewEl);
+	async setViewData(data: string, clear: boolean) {
+		this.editor.setValue(data);
+		parseFountain(data, this.previewEl);
+		if (clear) {
+			this.editor.clearHistory();
+		}
 	}
 
 	clear() {
 		this.previewEl.empty();
-		this.sourceEl.empty();
+		this.editor.setValue('');
+		this.editor.clearHistory();
 	}
 
 	async render() {

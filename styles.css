@@ -25,6 +25,7 @@
 .screenplay {
     margin: auto;
     width: 60%;
+    max-width: 55em;
     text-align: left;
     font: 12pt 'Courier Final Draft', 'Courier Screenplay', Courier;
     padding: 0pt 0 0 0pt;
@@ -69,6 +70,7 @@
 .screenplay>.dialogue p {
     text-align: left;
     margin-left: 20%;
+    margin-right: 20%;
 }
 
 .underline {

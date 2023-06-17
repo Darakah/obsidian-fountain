@@ -6,7 +6,7 @@
 }
 
 .cm-s-fountain {
-    font-family: "PT Mono","Menlo",monospace;
+    font-family: var(--font-monospace)
 }
 
 .screenplay {

@@ -4,17 +4,23 @@ import { Fountain } from 'fountain-js'
 
 function parseFountain(text: string, container: HTMLElement) {
 	const { html } = new Fountain().parse(text);
+
+	// Renders pages individually as if they were printed.
+	// DPI can be changed to 72, 100, or 150.
 	const pages = container.createDiv({
-		cls: "us-letter dpi72"
+		cls: "us-letter dpi100"
 	})
 	pages.id = "script"
 
+	// Adds title page if found.
 	if (html.title_page) {
 		const titlePage = pages.createDiv({
 			cls: "page title-page"
 		})
 		titlePage.innerHTML = html.title_page;
 	}
+	
+	// Adds all script pages.
 	const script = pages.createDiv({
 		cls: "page"
 	})

@@ -82,7 +82,8 @@ class FountainView extends TextFileView {
 			lineNumbers: false,
 			lineWrapping: true,
 			scrollbarStyle: null,
-			keyMap: "default"
+			keyMap: "default",
+			theme: "fountain"
 		});
 		this.render = this.render.bind(this);
 	}

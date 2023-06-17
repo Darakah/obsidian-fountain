@@ -5,6 +5,10 @@
     position: unset;
 }
 
+.cm-s-fountain {
+    font-family: "PT Mono","Menlo",monospace;
+}
+
 .screenplay {
     display: block;
 }

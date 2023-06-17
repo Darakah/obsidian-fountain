@@ -1,11 +1,24 @@
 import { Plugin, WorkspaceLeaf, TextFileView, setIcon } from 'obsidian';
 import * as CodeMirror from 'codemirror';
-import * as fountain from '../node_modules/Fountain-js/fountain.js';
+import { Fountain } from 'fountain-js'
 
 function parseFountain(text: string, container: HTMLElement) {
-	fountain.parse(text, function (output) {
-		container.innerHTML = output.html.script;
-	});
+	const { html } = new Fountain().parse(text);
+	const pages = container.createDiv({
+		cls: "us-letter dpi72"
+	})
+	pages.id = "script"
+
+	if (html.title_page) {
+		const titlePage = pages.createDiv({
+			cls: "page title-page"
+		})
+		titlePage.innerHTML = html.title_page;
+	}
+	const script = pages.createDiv({
+		cls: "page"
+	})
+	script.innerHTML = html.script;
 }
 
 export default class FountainPlugin extends Plugin {

@@ -5,6 +5,10 @@
     position: unset;
 }
 
+.fountain-source-view>.CodeMirror {
+    overflow: clip;
+}
+
 .cm-s-fountain {
     font-family: var(--font-monospace)
 }

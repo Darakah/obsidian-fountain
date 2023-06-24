@@ -1,6 +1,16 @@
-import { Plugin, WorkspaceLeaf, TextFileView, setIcon } from 'obsidian';
+import { App, Setting, Plugin, WorkspaceLeaf, TextFileView, setIcon, PluginSettingTab, DropdownComponent } from 'obsidian';
 import * as CodeMirror from 'codemirror';
 import { Fountain } from 'fountain-js'
+
+interface FountainSettings {
+	dpi: string
+}
+
+const DEFAULT_SETTINGS: FountainSettings = {
+	dpi: '72'
+}
+
+let dpi = DEFAULT_SETTINGS.dpi;
 
 function parseFountain(text: string, container: HTMLElement) {
 	const { html } = new Fountain().parse(text);
@@ -8,7 +18,7 @@ function parseFountain(text: string, container: HTMLElement) {
 	// Renders pages individually as if they were printed.
 	// DPI can be changed to 72, 100, or 150.
 	const pages = container.createDiv({
-		cls: "us-letter dpi100"
+		cls: `us-letter dpi${dpi}`
 	})
 	pages.id = "script"
 
@@ -28,19 +38,25 @@ function parseFountain(text: string, container: HTMLElement) {
 }
 
 export default class FountainPlugin extends Plugin {
+	settings: FountainSettings = DEFAULT_SETTINGS
+
 	containerEl: HTMLElement;
 
 	async onload() {
 		// Load message
 		console.log('Loaded Fountain Plugin');
 
+		// load settings
+		await this.loadSettings();
+		dpi = this.settings.dpi;
+
 		// register .fountain extension
 		this.registerExtensions(["fountain"], "fountain");
 
-		// register fountain view
+		// register Fountain view
 		this.registerView("fountain", this.fountainViewCreator);
 
-		// Register Fountain block renderer
+		// register Fountain block renderer
 		this.registerMarkdownCodeBlockProcessor('fountain', async (source, el) => {
 			let container = el.createDiv({
 				cls: "screenplay"
@@ -48,6 +64,9 @@ export default class FountainPlugin extends Plugin {
 
 			parseFountain(source, container);
 		});
+
+		// register Fountain setting tab
+		this.addSettingTab(new FountainSettingTab(this.app, this));
 	}
 
 	fountainViewCreator(leaf: WorkspaceLeaf) {
@@ -56,6 +75,14 @@ export default class FountainPlugin extends Plugin {
 
 	onunload() {
 		console.log('unloading Fountain Plugin');
+	}
+
+	async loadSettings() {
+		this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());
+	}
+
+	async saveSettings() {
+		await this.saveData(this.settings);
 	}
 }
 
@@ -149,5 +176,40 @@ class FountainView extends TextFileView {
 
 	getViewType() {
 		return "fountain";
+	}
+}
+
+class FountainSettingTab extends PluginSettingTab {
+	plugin: FountainPlugin;
+
+	constructor(app: App, plugin: FountainPlugin) {
+		super(app, plugin);
+		this.plugin = plugin;
+	}
+
+	display(): void {
+		const {containerEl} = this;
+
+		containerEl.empty();
+
+		containerEl.createEl('h2', {text: 'Settings for Fountain'});
+
+		new Setting(containerEl)
+			.setName('Preview Render Size')
+			.setDesc('Changes the size of the screenplay render in Live Preview')
+			.addDropdown(dropdown => dropdown
+				.addOption(DEFAULT_SETTINGS.dpi, 'Default')
+				.addOption('100', 'Larger')
+				.addOption('150', 'Largest')
+				.setValue(this.plugin.settings.dpi)
+				.onChange(async (value) => {
+					console.log(`DPI set to ${value}. Changes will take affect on reload.`);
+					this.plugin.settings.dpi = value;
+					await this.plugin.saveSettings();
+					const script = this.app.workspace.containerEl.querySelector('#script')
+					if (script) {
+						script.className = `us-letter dpi${value}`
+					}
+				}));
 	}
 }

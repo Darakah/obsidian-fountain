@@ -5,90 +5,144 @@
     position: unset;
 }
 
-.screenplay {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    overflow-y: hidden;
-    vertical-align: baseline;
+.fountain-source-view>.CodeMirror {
+    overflow: clip;
+}
+
+.cm-s-fountain {
+    font-family: var(--font-monospace)
 }
 
 .screenplay {
     display: block;
 }
 
+/* Screenplay */
+/* #51445F - moon warrior */ 
+.screenplay #script { margin: 25px auto 0 auto; width: 850px; }
 
-/* Styles for Screenplain */
-
-.screenplay {
-    margin: auto;
-    width: 60%;
+.screenplay .page::-moz-selection, .screenplay .page::selection { background: #ED303C; color: #fff; }
+.screenplay #script .page
+{    
+    background: #fff;
+    border: 1px solid #d2d2d2;
+    border-radius: 2px;
+    color: #222;
+    cursor: text;
+    font: Courier,"Courier New",monospace;
+    letter-spacing: 0 !important;
+    font-family: 'Courier Final Draft', Courier, Courier New, monospace;
+    line-height: 107.5%;
+    margin-bottom: 25px;
+    position: relative;
     text-align: left;
-    font: 12pt 'Courier Final Draft', 'Courier Screenplay', Courier;
-    padding: 0pt 0 0 0pt;
-    position: static;
+    width: 100%;
+    z-index: 200;
+    -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0 0 5px rgba(0,0,0,0.1);
+	box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;    
 }
 
-.screenplay>header {
-    margin-bottom: 1em;
-    border-bottom: 1px solid black;
-}
+.screenplay #script.dpi72 .page { font-size: 12px; padding: 72px 72px 72px 108px; }
+.screenplay #script.dpi100 .page { font-size: 16px; padding: 100px 100px 100px 150px; }
+.screenplay #script.dpi150 .page { font-size: 33px;  padding: 150px 150px 150px 225px; }
 
-.screenplay>footer {
-    margin-top: 1em;
-}
+.screenplay #script.dpi72 .page h1,
+.screenplay #script.dpi72 .page h2,
+.screenplay #script.dpi72 .page h3,
+.screenplay #script.dpi72 .page h4,
+.screenplay #script.dpi72 .page p { font-size: 12px; font-weight: normal; }
 
-.screenplay>em {
-    font-style: italic;
-}
+.screenplay #script.dpi100 .page h1,
+.screenplay #script.dpi100 .page h2,
+.screenplay #script.dpi100 .page h3,
+.screenplay #script.dpi100 .page h4,
+.screenplay #script.dpi100 .page p { font-size: 17px; font-weight: normal; }
 
-.screenplay>p .bold {
-    font-weight: bold;
-}
+.screenplay #script.dpi150 .page h1,
+.screenplay #script.dpi150 .page h2,
+.screenplay #script.dpi150 .page h3,
+.screenplay #script.dpi150 .page h4,
+.screenplay #script.dpi150 .page p { font-size: 33px; font-weight: normal; }
 
-.screenplay>br {
-    clear: both;
-}
+/* US Paper */
+.screenplay #script.us-letter.dpi72 { width: 612px; } /* us letter - 72 dpi - 612px x 792px - margins: 1" 1" 1" 1.5" */
+.screenplay #script.us-letter.dpi100 { width: 850px; } /* us letter - 100 dpi - 850px x 1100px - margins: 1" 1" 1" 1.5" */
+.screenplay #script.us-letter.dpi150 { width: 1275px; } /* us letter - 150 dpi - 1275px x 1650px - margins: 1" 1" 1" 1.5" */
 
-.screenplay>div.action p {
-    margin-top: 1em;
-}
+.screenplay #script.us-letter.dpi72 .page { min-height: 792px; } /* min height temporary until proper paging is implemented */
+.screenplay #script.us-letter.dpi100 .page { min-height: 1100px; } /* min height temporary until proper paging is implemented */
+.screenplay #script.us-letter.dpi150 .page { min-height: 1650px; } /* min height temporary until proper paging is implemented */
 
+.screenplay #script.us-letter.dpi72 .page.title-page { height: 792px; } /* temp for title page until paging is implemented */
+.screenplay #script.us-letter.dpi100 .page.title-page { height: 1100px; } /* temp for title page until paging is implemented */
+.screenplay #script.us-letter.dpi150 .page.title-page { height: 1650px; } /* temp for title page until paging is implemented */
 
-/* Dialogue */
+/* A4 Paper */
+.screenplay #script.a4.dpi72 { width: 595px; } /* us letter - 72 dpi - 595px x 842px - margins: 1" 1" 1" 1.5" */
+.screenplay #script.a4.dpi100 { width: 827px; } /* us letter - 72 dpi - 827px x 1169px - margins: 1" 1" 1" 1.5" */
+.screenplay #script.a4.dpi150 {  width: 1250px; } /* us letter - 72 dpi - 1250px x 1754px - margins: 1" 1" 1" 1.5" */
 
-.screenplay>.dialogue h4 {
-    text-align: center;
-    color: var(--bright-yellow) !important;
-    font-weight: 500 !important;
-    font-size: 18px !important;
-}
+.screenplay #script.a4.dpi72 .page { height: 842px; }
+.screenplay #script.a4.dpi100 .page { height: 1169px; }
+.screenplay #script.a4.dpi150 .page { height: 1754px; }
 
-.screenplay>.dialogue p {
-    text-align: left;
-    margin-left: 20%;
-}
+/* title page */
+.screenplay #script .title-page h1 { margin-top: 50%; margin-bottom: 34px; text-align: center; width: 90.5%; }
+.screenplay #script .title-page p.credit { text-align: center; width: 90.5%; }
+.screenplay #script .title-page p.author,
+.screenplay #script .title-page p.authors { margin-bottom: 32px; margin-top: 0; text-align: center; width: 90.5%; }
+.screenplay #script .title-page p.source { margin-bottom: 32px; text-align: center; width: 90.5%; }
+.screenplay #script .title-page p.notes { bottom: 350px; position: absolute; right: 0; text-align: right; }
+.screenplay #script.dpi72 .title-page p.notes { bottom: 252px; right: 72px; }
+.screenplay #script.dpi100 .title-page p.notes { bottom: 350px; right: 100px; }
+.screenplay #script.dpi150 .title-page p.notes { bottom: 525px; right: 150px; }
+.screenplay #script .title-page p.date,
+.screenplay #script .title-page p.draft-date { bottom: 250px; position: absolute; right: 0; text-align: right; }
+.screenplay #script.dpi72 .title-page p.date,
+.screenplay #script.dpi72 .title-page p.draft-date { bottom: 180px; right: 72px; }
+.screenplay #script.dpi100 .title-page p.date,
+.screenplay #script.dpi100 .title-page p.draft-date { bottom: 250px; right: 100px; }
+.screenplay #script.dpi150 .title-page p.date,
+.screenplay #script.dpi150 .title-page p.draft-date { bottom: 375px; right: 150px; }
+.screenplay #script .title-page p.contact { bottom: 100px; position: absolute; right: 0; text-align: right; }
+.screenplay #script.dpi72 .title-page p.contact { bottom: 72px; right: 72px; }
+.screenplay #script.dpi100 .title-page p.contact { bottom: 100px; right: 100px; }
+.screenplay #script.dpi150 .title-page p.contact { bottom: 150px; right: 150px; }
+.screenplay #script .title-page p.copyright { bottom: 100px; position: absolute; text-align: left; }
+.screenplay #script.dpi72 .title-page p.copyright { bottom: 72px; }
+.screenplay #script.dpi100 .title-page p.copyright { bottom: 100px; }
+.screenplay #script.dpi150 .title-page p.copyright { bottom: 150px; }
 
-.underline {
-    text-decoration: underline;
-}
+/* script */
+.screenplay #script .page h2 { text-align: right; }
+.screenplay #script .page h2.left-aligned { text-align: left }
+.screenplay #script .page h3 { position: relative; }
+.screenplay #script .page h3:before { color: #bbb; content: attr(id); font-weight: bold; left: -45px; position: absolute; }
+.screenplay #script .page h3:after { color: #bbb; content: attr(id); font-weight: bold; right: -45px; position: absolute; }
 
-.screenplay>.dialogue .parenthetical {
-    padding-left: 10%;
-}
+.screenplay #script .page div.dialogue { margin-left: auto; margin-right: auto; width: 68%; }
+.screenplay #script .page div.dialogue h4 { margin-bottom: 0; margin-left: 23%; }
+.screenplay #script .page div.dialogue p.parenthetical { margin-bottom: 0; margin-top: 0; margin-left: 11%;}
+.screenplay #script .page div.dialogue p { margin-bottom: 0; margin-top: 0; }
 
+.screenplay #script .page div.dual-dialogue { margin: 2em 0 0.9em 2%; width: 95%; }
+.screenplay #script .page div.dual-dialogue div.dialogue { display: inline-block; margin: 0; width: 45%; }
+.screenplay #script .page div.dual-dialogue div.dialogue h4 { margin-top: 0;}
+.screenplay #script .page div.dual-dialogue div.dialogue.right { float: right; }
 
-/* Headers */
+.screenplay #script .page p { }
+.screenplay #script .page p.centered { text-align: center; width: 92.5%; }
 
-.screenplay>h3 {
-    margin-top: 2em;
-    text-transform: uppercase;
-    font-weight: bold !important;
-    color: var(--text-accent) !important;
-}
+.screenplay #script .page p.section { color: #bbb; margin-left: -30px; }
+.screenplay #script .page p.synopsis { color: #bbb; margin-left: -20px; }
 
+.screenplay #script .page span.italic { font-style: italic; }
+.screenplay #script .page span.bold { font-weight: bold; }
+.screenplay #script .page span.underline { text-decoration: underline; }
 
 /* Change mode button */
 

@@ -14,6 +14,7 @@
         "@codemirror/lang-javascript": "^0.18.0",
         "@types/codemirror": "^0.0.98",
         "codemirror": "^5.60.0",
+        "fountain-js": "^1.1.0",
         "obsidian": "obsidianmd/obsidian-api#master",
         "rollup-plugin-styles": "^3.14.1",
         "tslib": "2.1.0"

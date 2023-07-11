@@ -2,3 +2,4 @@ node_modules
 main.js
 images/.DS_Store
 .DS_Store
+data.json
